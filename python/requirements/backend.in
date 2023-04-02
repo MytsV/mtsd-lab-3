@@ -1,4 +1,0 @@
-fastapi
-pydantic
-starlette
-uvicorn[standard]
