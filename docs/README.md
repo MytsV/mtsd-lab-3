@@ -1,6 +1,6 @@
 # Python
 
-## 1 - Перший образ
+## Завдання 1 - Перший образ
 
 **mytsv/python-methologies:v1**
 
@@ -44,7 +44,7 @@ CMD [ "uvicorn", "spaceship.main:app", "--host=0.0.0.0", "--port=8080" ]
 ![Результат запуску](../pics/app-python.png)
 </details>
 
-## 2 - Зміна коду
+## Завдання 2 - Зміна коду
 
 **mytsv/python-methologies:v2**
 
@@ -59,7 +59,7 @@ CMD [ "uvicorn", "spaceship.main:app", "--host=0.0.0.0", "--port=8080" ]
 ![Результат запуску](../pics/app-python-v2.png)
 </details>
 
-## 3 - Менш ефективний Dockerfile
+## Завдання 3 - Менш ефективний Dockerfile
 
 **mytsv/python-methologies:v2-imperfect**
 
@@ -71,7 +71,7 @@ COPY . .
 RUN pip install --no-cache-dir -r ./requirements/lock.txt
 ```
 
-## 4 - Легший базовий образ
+## Завдання 4 - Легший базовий образ
 
 **mytsv/python-methologies:v2-light**
 
@@ -82,7 +82,7 @@ FROM python:3.10-slim
 
 Спершу я випробувала тег 3.10-alpine3.16, але з ним виникали проблеми в наступному пункті при встановленні залежності numpy. Не вистачало певних системних залежностей, тому я переробила цей пункт, використовуючи трішки об'ємніший, але працюючий базовий образ.
 
-## 5 - Нові залежності
+## Завдання 5 - Нові залежності
 
 **mytsv/python-methologies:v3**
 
@@ -123,33 +123,33 @@ def matrix_product() -> dict:
 
   ### Час збірки
 
-  Пункт 1
+  Пункт 1 \
 
   ![Час збірки 1](../pics/1-time-python.png)
 
-  Пункт 2
+  Пункт 2 \
 
   ![Час збірки 2](../pics/2-time-python.png)
 
-  Пункт 3
+  Пункт 3 \
 
   ![Час збірки 3](../pics/3-time-python.png)
 
-  Пункт 4
+  Пункт 4 \
 
   ![Час збірки 4](../pics/4-time-python.png)
 
-  Пункт 5 - slim
+  Пункт 5 - slim \
 
   ![Час збірки 5](../pics/5-time-python.png)
 
-  Пункт 5 - bullseye
+  Пункт 5 - bullseye \
 
   ![Час збірки 5 heavy](../pics/5-heavy-time-python.png)
 
   ### Розмір образу
 
-  Червоним виділено образ, який створювався з базового python:3.10-alpine3.16
+  Червоним виділено образ, який створювався з базового python:3.10-alpine3.16 \
 
   ![Розміри образів](../pics/size-python.png)
 
