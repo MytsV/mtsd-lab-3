@@ -1,0 +1,21 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "Colorful hello world",
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+    "ascii-text-generator": "^1.0.5",
+    "cat-me": "^1.0.3"
+  },
+  "bin": "build.cjs",
+  "devDependencies": {
+    "eslint": "^8.37.0",
+    "eslint-config-google": "^0.14.0"
+  },
+  "pkg": {
+    "targets": [
+      "node12-linuxstatic-x64"
+    ]
+  }
+}
