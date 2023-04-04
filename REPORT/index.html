@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Звіт - Lab 3</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/dockerfile.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Lab 3</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Вступ</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Звіт</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">Команди, конфігурація</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#python" class="nav-link">Python</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1-" class="nav-link">Завдання 1 - Перший образ</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2-" class="nav-link">Завдання 2 - Зміна коду</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3-dockerfile" class="nav-link">Завдання 3 - Менш ефективний Dockerfile</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#4-" class="nav-link">Завдання 4 - Легший базовий образ</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#5-" class="nav-link">Завдання 5 - Нові залежності</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">Виміри й порівняння</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_5" class="nav-link">Висновок</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#golang" class="nav-link">Golang</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1-_1" class="nav-link">Завдання 1 - Перший образ</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2-_1" class="nav-link">Завдання 2 - Багатоетапна збірка</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3-distroless" class="nav-link">Завдання 3 - Distroless</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_6" class="nav-link">Виміри й порівняння</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_9" class="nav-link">Висновок</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#js" class="nav-link">JS</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_10" class="nav-link">Висновок</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#_11" class="nav-link">Загальні висновки</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">Команди, конфігурація</h1>
+<p>Для поданих нижче задач я використовую одні й ті ж команди</p>
+<pre><code class="language-bash"># Збірка образу
+docker build -t insert-image-name .
+# Збірка за експериментів з кешем
+docker build --no-cache -t insert-image-name .
+# Вивід інформації про контейнери, у тому числі розміри
+docker images
+# Запуск контейнера з прив'язкою порта 8080 до випадкового порта на хост-системі
+docker run -p 8080 insert-image-name
+# Вивід інформації про запущені контейнери, так взнаю порт прив'язки на хост-системі
+docker container ls
+# Запуск контейнера з прив'язкою порта 8080 до порта 8080 на хост-системі
+docker run -p 8080:8080 insert-image-name
+# Запуск контейнера з входженням у його оболонку, так перевіряємо вміст
+docker run -it insert-image-name sh
+# Взнаємо ID останнього запущеного контейнера
+docker ps -lq
+# Для контейнерів без можливості входження в оболонку, взнаємо вміст
+docker export $(docker ps -lq) | tar tf -
+# Для контейнерів без можливості входження в оболонку, взнаємо вміст і розміра файлів
+docker export $(docker ps -lq) | tar zvtf -
+</code></pre>
+<p>Для вимірювання часу збірки образу я використовую <a href="https://github.com/moby/buildkit">BuildKit</a>, попередньо збірки присвоївши змінній середовища DOCKER_BUILDKIT значення 1.</p>
+<p>Назви пунктів містять посилання на версію коду. Курсивом виділено назви образів.</p>
+<h1 id="python">Python</h1>
+<p>Після кожного кроку збираю образ і запускаю контейнер з прив'язкою 8080 до випадкового, проводжу вимірювання.</p>
+<h2 id="1-"><a href="https://github.com/MytsV/mtsd-lab-3/tree/ae67d1b413ddfcfac0dc3211ca90da6744ffed68/python">Завдання 1 - Перший образ</a></h2>
+<p><em>mytsv/python-methologies:v1</em></p>
+<p>Для того, аби в контейнер не підтягувалися нові версії залежностей, я використала утиліту pipreqs:</p>
+<pre><code class="language-bash"># З кореня репозиторію
+cd ./python
+pip install pipreqs
+pipreqs .
+mv ./requirements.txt ./requirements/lock.txt
+</code></pre>
+<p>Залежність uvicorn довелось додати вручну <a href="https://github.com/MytsV/mtsd-lab-3/blob/ae67d1b413ddfcfac0dc3211ca90da6744ffed68/python/requirements/lock.txt">у цей список</a>, вказавши останню версію, оскільки pipreqs не включив її автоматично.</p>
+<pre><code>uvicorn[standard]==0.21.1
+</code></pre>
+<p>Опис контейнера застосунку в <a href="https://github.com/MytsV/mtsd-lab-3/blob/ae67d1b413ddfcfac0dc3211ca90da6744ffed68/python/Dockerfile">Dockerfile</a>:</p>
+<pre><code class="language-dockerfile"># Поки що використовуємо важкий базовий образ на основі Debian
+FROM python:3.10-bullseye
+
+# Переключаємося на роботу з цією директорією в контейнері
+WORKDIR /usr/src/spaceship-app
+
+# Встановлюємо фіксовані залежності
+COPY ./requirements/lock.txt ./requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Копіюємо код 
+COPY . .
+
+# Запускаємо веб-застосунок разом із контейнером
+CMD [ &quot;uvicorn&quot;, &quot;spaceship.main:app&quot;, &quot;--host=0.0.0.0&quot;, &quot;--port=8080&quot; ]
+</code></pre>
+<details>
+  <summary>Результат:</summary>
+
+<img src="/pics/app-python.png" alt="result">
+</details>
+
+<h2 id="2-">Завдання 2 - Зміна коду</h2>
+<p><em>mytsv/python-methologies:v2</em></p>
+<p>Я відредагувала build/index.html (цей файл ігнорується системою контролю версій) наступним чином:</p>
+<pre><code class="language-html">&lt;p&gt;Laboratory assignment 03, &lt;i&gt;finished by Victoria Myts&lt;/i&gt;&lt;/p&gt;
+</code></pre>
+<details>
+  <summary>Результат:</summary>
+
+<img src="/pics/app-python-v2.png" alt="result">
+</details>
+
+<h2 id="3-dockerfile"><a href="https://github.com/MytsV/mtsd-lab-3/tree/779c65fc8360d39de8dc14e72b8662e5a2416f95/python">Завдання 3 - Менш ефективний Dockerfile</a></h2>
+<p><em>mytsv/python-methologies:v2-imperfect</em></p>
+<p>Оскільки спершу порядок команд був ідеальним, у <a href="https://github.com/MytsV/mtsd-lab-3/blob/779c65fc8360d39de8dc14e72b8662e5a2416f95/python/Dockerfile">новому Dockerfile</a> я змінила їх місцями:</p>
+<pre><code class="language-dockerfile">COPY . .
+
+RUN pip install --no-cache-dir -r ./requirements/lock.txt
+</code></pre>
+<h2 id="4-"><a href="https://github.com/MytsV/mtsd-lab-3/tree/eb5fed4c0c917f0dedc423c19c1d90880ffdd368/python">Завдання 4 - Легший базовий образ</a></h2>
+<p><em>mytsv/python-methologies:v2-light</em></p>
+<p>Змінено перший рядок <a href="https://github.com/MytsV/mtsd-lab-3/blob/eb5fed4c0c917f0dedc423c19c1d90880ffdd368/python/Dockerfile">Dockerfile</a>:</p>
+<pre><code class="language-dockerfile">FROM python:3.10-slim
+</code></pre>
+<p>Спершу я випробувала тег 3.10-alpine3.16, але з ним виникали проблеми в наступному пункті при встановленні залежності numpy. Не вистачало певних системних залежностей, як от g++. Аби не стикнутися з подальшими проблемами навіть при встановленні відсутніх системних залежностей, я переробила цей пункт, використовуючи трішки об'ємніший, але працюючий базовий образ.</p>
+<h2 id="5-"><a href="https://github.com/MytsV/mtsd-lab-3/tree/1a1733f41b2580efc5c783ab2177cab74da69a01/python">Завдання 5 - Нові залежності</a></h2>
+<p><strong>mytsv/python-methologies:v3</strong></p>
+<p>У <a href="https://github.com/MytsV/mtsd-lab-3/blob/1a1733f41b2580efc5c783ab2177cab74da69a01/python/spaceship/routers/api.py">spaceship/routers/api.py</a> доданий новий ендпоінт /product:</p>
+<pre><code class="language-python">@router.get('/product')
+def matrix_product() -&gt; dict:
+    import numpy as np
+
+    # Create two 10x10 random matrices
+    matrix_a = np.random.rand(10, 10)
+    matrix_b = np.random.rand(10, 10)
+
+    # Multiply the matrices together
+    result = np.dot(matrix_a, matrix_b)
+
+    return {
+        'matrix_a': matrix_a.tolist(), 
+        'matrix_b': matrix_b.tolist(), 
+        'product': result.tolist()
+    }
+</code></pre>
+<p>Через pipreqs було оновлено файл зі <a href="https://github.com/MytsV/mtsd-lab-3/blob/1a1733f41b2580efc5c783ab2177cab74da69a01/python/requirements/lock.txt">списком фіксованих залежностей</a>, але версія numpy на моєму пристрої виявилась без підтримки python 3.10, тому я замінила її вручну на новішу.</p>
+<pre><code>numpy==1.23.0
+</code></pre>
+<details>
+  <summary>Результат:</summary>
+
+  <img src="/pics/app-python-v3.png" alt="result">
+</details>
+
+<p>Згодом був <a href="https://github.com/MytsV/mtsd-lab-3/commit/7d1c90130db3437e6ceaa9216e8da9ff07c052bb">створений ще один образ</a> <em>mytsv/python-methologies:v3-heavy</em> на основі базового з тегом 3.10-bullseye.</p>
+<h2 id="_2">Виміри й порівняння</h2>
+<details>
+  <summary>Знімки екрану з результатом запуску команд виміру</summary>
+
+  <br>
+
+  <h4>Час збірки</h4>
+
+  Пункт 1
+  <img src="/pics/1-time-python.png" alt="time1">
+
+  Пункт 2
+  <img src="/pics/2-time-python.png" alt="time2">
+
+  Пункт 3
+  <img src="/pics/3-time-python.png" alt="time3">
+
+  Пункт 4
+  <img src="/pics/4-time-python.png" alt="time4">
+
+  Пункт 5 - slim
+  <img src="/pics/5-time-python.png" alt="time5">
+
+  Пункт 5 - bullseye
+  <img src="/pics/5-heavy-time-python.png" alt="time5h">
+
+  <h4>Розмір образу</h4>
+
+  Червоним виділено образ, який створювався з базового python:3.10-alpine3.16
+
+  <img src="/pics/size-python.png" alt="size">
+  <img src="/pics/size-heavy-python.png" alt="size">
+
+</details>
+
+<h3 id="_3">Час збірки</h3>
+<p>З декількох запусків команди <code>docker build</code> мені стало зрозуміло, що час збірки залежить від багатьох змінних, і не кожна пов'язана з маніпуляціями, проведеними з програмним кодом чи Dockerfile. Оскільки залежності завантажуються, то за кращого у період часу інтернет-з'єдання важкий базовий образ може завантажитися швидше, ніж легший. <strong>Тому тут і надалі я не згадуватиму точний час.</strong><br>
+При більш-менш однакових параметрах мережі, очевидно, швидше проходила збірка образів з меншими базовими образами (<strong>1 пункт</strong> довше за <strong>4 пункт</strong>) або з легшими залежностями (<strong>5 пункт</strong> довше за <strong>4 пункт</strong>).<br>
+Завдяки уже завантаженим базовим образам і кешуванню шарів, на 2+ запуску збірки (без змін файлів проєкту) швидкість значно збільшувалась. (<strong>1 пункт</strong> довше за <strong>2 пункт</strong>).<br>
+Між <strong>2 і 3 пунктом</strong> я побачила різницю лише у тому, що за зміни порядку команд (і разом з цим шарів) кешування спершу не спрацювало. Після цього я експерементувала зі збіркою, у тому числі застосовуючи прапорець <code>--no-cache</code>. Проте, ніякої "статистичної" відмінності між часом збірки неідеального та оптимізованого порядку шарів я не помітила.</p>
+<h3 id="_4">Розмір образу</h3>
+<p>Для зручного аналізу створю таблицю:</p>
+<table>
+<thead>
+<tr>
+<th>Тег/Опис</th>
+<th>Розмір</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v1</td>
+<td>953MB</td>
+</tr>
+<tr>
+<td>v2</td>
+<td>953MB</td>
+</tr>
+<tr>
+<td>v2-imperfect</td>
+<td>953MB</td>
+</tr>
+<tr>
+<td>v2-light</td>
+<td>166MB</td>
+</tr>
+<tr>
+<td>v3</td>
+<td>233MB</td>
+</tr>
+<tr>
+<td>v3-heavy</td>
+<td>1.02GB</td>
+</tr>
+<tr>
+<td>База alpine</td>
+<td>94.2MB</td>
+</tr>
+</tbody>
+</table>
+<p>З цього можна зробити висновок, що на розмір образу впливає вибір базового образу (<strong>alpine</strong> &lt; <strong>v2-light</strong> &lt; <strong>v1</strong>) і кількість та важкість залежностей (<strong>v2-light</strong> &lt; <strong>v3</strong>; <strong>v2</strong> &lt; <strong>v3-heavy</strong>).<br>
+Для пунктів 2 і 3 у цьому вимірі також майже не виявилось різниці. Я вирішила взнати більш точний розмір обох образів:</p>
+<p><img src="/pics/precise-size-python.png" alt="size"></p>
+<p>Виходить, що "ідеальний" важить навіть на декілька байтів більше! Схоже на те, що причиною цього є додатковий файл із списком залежностей.</p>
+<h2 id="_5">Висновок</h2>
+<p><list>
+З проведених експериментів я можу виділити такі рекомендації:</p>
+<ul>
+<li>Для того, аби уникнути неочікуваних проблем через підтягування нових версій залежностей у контейнери, можна використовувати різноманітні засоби закріплення залежностей. Для Python проєктів були перевірені утиліти pip freeze і pipreqs.</li>
+<li>Аби зберегти пам'ять пристрою, на якому здійснюється контейнеризація, можна використати більш легку базу образу. Проте, потрібно бути обережним: деякі базові образи при незначному виграші в розмірі викличуть немало важких для виправлення проблем. При пошуку рішень, помилка завантаження деяких залежностей Python на образ з основою Alpine Linux виявилась не унікальною для мене.</li>
+<li>Я не побачила значущої різниці між вимірами ефективності образу з оптимізованим і неоптимізованим порядком шарів. Підозра падає на недостатньо великий розмір моїх Dockerfile'ів. Проте, я вважаю, що ефективним порядком команд усе одно не потрібно нехтувати.</li>
+<li>Оскільки розмір залежностей значно впливає на розмір образу, іноді варто обирати більш lightweight опції, якщо це важливо в зв'язку зі специфіками пристроїв, на яких розгортаємо контейнери. Наприклад, uvicorn[standard] замість uvicorn, або ж tinynumpy замість numpy.
+</list></li>
+</ul>
+<h1 id="golang">Golang</h1>
+<p>Після кожного кроку збираю образ і запускаю контейнер з прив'язкою 8080 до 8080, проводжу вимірювання.</p>
+<h2 id="1-_1"><a href="https://github.com/MytsV/mtsd-lab-3/tree/21cec80b280e97620c3e3355d7ef034643648d66/golang">Завдання 1 - Перший образ</a></h2>
+<p><em>mytsv/golang-methologies:v1</em></p>
+<p>Створюю <a href="https://github.com/MytsV/mtsd-lab-3/blob/21cec80b280e97620c3e3355d7ef034643648d66/golang/Dockerfile">Dockerfile</a> з описом образу:</p>
+<pre><code class="language-dockerfile"># Використовуємо базовий образ на основі alpine
+FROM golang:1.17-alpine
+
+WORKDIR /usr/src/fizzbuzz-app
+
+# Встановлюємо залежності
+COPY go.mod go.sum ./
+RUN go mod download &amp;&amp; go mod verify
+
+# Компілюємо бінарний файл
+COPY . .
+RUN go build -v -o /usr/local/bin/fizzbuzz
+
+#Запускаємо HTTP сервер
+CMD [&quot;fizzbuzz&quot;, &quot;serve&quot;]
+</code></pre>
+<details>
+  <summary>Знімки екрану з користувацьким вмістом контейнера</summary>
+
+<img src="/pics/ls-app.png">
+<img src="/pics/ls-bin.png">
+</details>
+
+<p>Крім виконуваного файлу fizzbuzz, як і в проведеній роботі з Python, у файловій системі контейнера знаходиться вихідний код проєкту, опис залежностей, README, Dockerfile і .gitignore. Ці останні складові не потрібні для запуску проєкту.</p>
+<details>
+  <summary>Результат роботи серверу</summary>
+
+<img src="/pics/go-app.png">
+</details>
+
+<h2 id="2-_1"><a href="https://github.com/MytsV/mtsd-lab-3/tree/7d7a0b683c200ed7e68a8f50498c6a8b3dd06324/golang">Завдання 2 - Багатоетапна збірка</a></h2>
+<p>Спершу я підкорегувала перший рядок <a href="https://github.com/MytsV/mtsd-lab-3/blob/7d7a0b683c200ed7e68a8f50498c6a8b3dd06324/golang/Dockerfile">Dockerfile</a>:</p>
+<pre><code class="language-dockerfile">FROM golang:1.17-alpine AS base
+</code></pre>
+<p>давши назву першому етапу збіки, і описала другий етап, залишивши директиву CMD із запуском програми лише у ньому:</p>
+<pre><code class="language-dockerfile">FROM scratch
+WORKDIR /root/
+COPY --from=base /usr/local/bin/fizzbuzz ./
+COPY --from=base /usr/src/fizzbuzz-app/templates ./templates
+
+CMD [&quot;./fizzbuzz&quot;, &quot;serve&quot;]
+</code></pre>
+<details>
+  <summary>Вміст образу</summary>
+
+Наявна мінімальна кількість системних файлів (через специфіку базового образу scratch), перекопійований нами бінарний файл і index.html. Ці користувацьки файли є єдиними необхідними для запуску проєкту.
+
+<img src="/pics/min-ls.png">
+</details>
+
+<details>
+  <summary>Проте, цього разу при запуску отримано помилку</summary>
+
+Вона пов'язана з тим, що команда go build без додаткових прапорців/заданих змінних середовища створює <b>динамічний</b> двійковий файл. Він намагається звернутися до спільних бібліотек, але їх немає на образі scratch.
+
+<img src="/pics/link-error.png">
+</details>
+<p>Виправляю помилку в Dockerfile, натомість компілюючи <strong>статичний</strong> двійковий файл.</p>
+<pre><code class="language-dockerfile">RUN CGO_ENABLED=0 go build -v -o /usr/local/bin/fizzbuzz
+</code></pre>
+<details>
+  <summary>Результат:</summary>
+
+<img src="/pics/go-app-command.png">
+</details>
+
+<p>Мінусом користування цим образом є те, що в його оболонку не можна перейти без додаткових налаштувань у Dockerfile. Проте, якщо не турбуватися недоліками статичних бінарних файлів, цей спосіб здався мені досить зручним для наявного завдання.</p>
+<h2 id="3-distroless"><a href="https://github.com/MytsV/mtsd-lab-3/tree/9a2b65bbdce7bd636991a6185b42ffb0f8c40626/golang">Завдання 3 - Distroless</a></h2>
+<p>Для тестування з проєкту distroless я обрала 2 базових образи: static і base. Різниця у тому, що base, на відміну від static, має в собі деякі спільні (shared) бібліотеки.</p>
+<p>Відредагувала <a href="https://github.com/MytsV/mtsd-lab-3/blob/9a2b65bbdce7bd636991a6185b42ffb0f8c40626/golang/Dockerfile">Dockerfile</a>, аби другий етап проходив на базі іншого образу:</p>
+<pre><code class="language-dockerfile">FROM gcr.io/distroless/static
+</code></pre>
+<p>Також для різноманіття тестування змінила аргументи запуску програми:</p>
+<pre><code class="language-dockerfile"># Генеруємо fizzbuzz completion скрипт для zsh
+CMD [&quot;./fizzbuzz&quot;, &quot;completion&quot;, &quot;zsh&quot;]
+</code></pre>
+<p>Збірка і запуск пройшли успішно.</p>
+<p>Base образ можна використовувати з динамічним бінарником, для цього змінюємо <a href="https://github.com/MytsV/mtsd-lab-3/blob/9a2b65bbdce7bd636991a6185b42ffb0f8c40626/golang/Dockerfile">Dockerfile</a>:</p>
+<pre><code class="language-dockerfile">RUN go build -o /usr/local/bin/fizzbuzz
+
+FROM gcr.io/distroless/base
+</code></pre>
+<p>Тут виникла така ж помилка, як і в пункті 2. Проблема виявилась у використанні alpine версії базового образу golang. Скомпільовані на ньому бінарники містили посилання на такі спільні бібліотеки, яких не було в base. Тому в Dockerfile я замінила базовий образ першого етапу збірки на такий, що має в основі Debian:</p>
+<pre><code class="language-dockerfile">FROM golang AS base
+</code></pre>
+<details>
+  <summary>Тепер усе працює коректно</summary>
+
+<img src="/pics/go-fizzbuzz.png">
+</details>
+
+<p>Вміст обох образів виявився значно більшим, ніж у того з базою scratch. Проте, користувацькими є також лише виконуваний файл і HTML сторінка.</p>
+<h2 id="_6">Виміри й порівняння</h2>
+<h3 id="_7">Час збірки</h3>
+<p>Як і в роботі з Python, через нестабільність мого інтернет з'єднання я не можу оперувати точними числами. Перша збірка в 3 пункті зайняла менше часу, ніж у 1, оскільки golang базовий образ уже був завантажений, а distroless образи були зовсім невеликими.</p>
+<h3 id="_8">Розмір образу</h3>
+<table>
+<thead>
+<tr>
+<th>Тег/Опис</th>
+<th>Розмір</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v1</td>
+<td>937MB</td>
+</tr>
+<tr>
+<td>v2</td>
+<td>8.95MB</td>
+</tr>
+<tr>
+<td>v3-static</td>
+<td>12.3MB</td>
+</tr>
+<tr>
+<td>v3</td>
+<td>30.3MB</td>
+</tr>
+</tbody>
+</table>
+<p>Дуже значною є різниця між першим образом <strong>v1</strong> і тим, <strong>v2</strong>, який створений у багатоетапній збірці. Розмір зменшився більш ніж у 100 разів, при тому, що програма досі запускається належним чином. Звісно, основна причина цьому - це величезна кількість пакетів, встановлених на v1.<br>
+Через 3 додаткові пакети в distroless static образі, <strong>v3-static</strong> &gt; <strong>v2</strong>. А динамічні бібліотеки в distroless base додали ще 20МБ понад мінімальним образом scratch.</p>
+<p>Недоліком статичних бінарників, а тому й збірки через scratch, повинно було бути те, що вони дуже великі завдяки включеності всіх бібліотек у них. Проте, практика показала протилежне:</p>
+<table>
+<thead>
+<tr>
+<th>Опис</th>
+<th>Розмір</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Динамічний з v3</td>
+<td>9892420</td>
+</tr>
+<tr>
+<td>Статичний з v2</td>
+<td>8949506</td>
+</tr>
+</tbody>
+</table>
+<p>Це майже 1МБ різниці в користь статичного двійкового файлу! Розгляд <a href="https://www.reddit.com/r/golang/comments/5lv9jc/why_are_statically_linked_cgo_binaries_smaller/">цього треда</a> наводить на думку, що справа у stripping.</p>
+<h2 id="_9">Висновок</h2>
+<p>Теоретично, код на всіх мовах може бути скомпільований у динамічний чи статичний двійковий файл. Створюючи проєкти, нерідко доцільніше переносити в робочий образ Docker лише цей бінарник і файли, до яких він звертається, а не весь вхідний код. Це сильно зменшить розмір образу за рахунок як вилучення зайвих файлів, так і відсутності пакетів, необхідних для компіляції. Мінімальні базові образи у тому числі можна отримати з проєкту distroless від Google. І хоч є способи статичної компіляції проєктів Python, Java чи JS, тому в теорії навіть для них можна використати scratch, для таких мов непогано використовувати спеціальні мінімальні образи distroless.
+Втиснувши у двійковий файл ще й усі бібліотеки, ми зробимо його статичним. У цього є деякі недоліки, які також треба зважувати, але за рахунок такої компіляції розмір образу буде мінімальним.</p>
+<h1 id="js"><a href="https://github.com/MytsV/mtsd-lab-3/tree/7b99792300b452ad8e8ee62561f6cad2bb64e6ac/js">JS</a></h1>
+<p>За допомогою платформи NodeJS я реалізувала <a href="https://github.com/MytsV/mtsd-lab-3/blob/7b99792300b452ad8e8ee62561f6cad2bb64e6ac/js/index.js">простий консольний застосунок</a>, який виводить ASCII малюнки. Він використовує дві залежності: cat-me і ascii-text-generator.</p>
+<pre><code class="language-js">const catMe = require('cat-me');
+const textGenerator = require('ascii-text-generator');
+
+console.log(textGenerator('METH LAB 3', '2'));
+console.log(catMe('grumpy'));
+</code></pre>
+<p>Мінімально необхідний набір - це буде статичний бінарний файл на базовому образі scratch. Такий можна створити, провівши бандлінг за допомогою <strong>esbuild</strong> та компіляцію за допомогою <strong>pkg</strong>. <br>
+У <a href="https://github.com/MytsV/mtsd-lab-3/blob/7b99792300b452ad8e8ee62561f6cad2bb64e6ac/js/package.json">package.json</a> потрібно було налаштувати опції запуску pkg. За статичну компіляцію відповідає ціль з linuxstatic, а параметр bin задає те, який файл скомпілюється в двійковий файл. build.cjs створюється утилітою esbuild.</p>
+<pre><code class="language-json">&quot;bin&quot;: &quot;build.cjs&quot;,
+&quot;pkg&quot;: {
+    &quot;targets&quot;: [
+        &quot;node12-linuxstatic-x64&quot;
+    ]
+}
+</code></pre>
+<p>Всі ці операції описані в <a href="https://github.com/MytsV/mtsd-lab-3/blob/7b99792300b452ad8e8ee62561f6cad2bb64e6ac/js/Dockerfile">Dockerfile</a> з багатоетапною збіркою:</p>
+<pre><code class="language-dockerfile">FROM node as builder
+WORKDIR /app
+# Копіюємо лише потрібні файли
+COPY package.json package-lock.json index.js ./
+# Встановлюємо лише production залежності
+RUN npm install --prod
+RUN npm install -g esbuild
+RUN npm install -g pkg
+# Збираємо код в один файл build.cjs
+RUN npx esbuild index.js  --bundle --outfile=build.cjs --format=cjs --platform=node
+# Компілюємо
+RUN pkg .
+
+# В мінімальний образ перекопійовуємо лише бінарник
+FROM scratch
+WORKDIR /app
+COPY --from=builder /app/hello-world /app/
+CMD [&quot;./hello-world&quot;]
+</code></pre>
+<details>
+  <summary>Результат запуску контейнера</summary>
+
+<img src="/pics/js-app.png">
+</details>
+
+<details>
+  <summary>Розмір образу</summary>
+
+<img src="/pics/js-size.png">
+</details>
+
+<details>
+  <summary>Вміст образу</summary>
+
+<img src="/pics/js-ls.png">
+</details>
+
+<h2 id="_10">Висновок</h2>
+<p>Мінімальний образ вийшов крихітним - лише 30 МБ. Проте, саме для JS підхід із двійковими файлами дуже незручний. Інформацію знайти нелегко, а якщо якась залежність використовує файли - робота стає ще на порядок важчою. На мою думку, для контейнеризації проєктів, розроблених на NodeJS, найкраще використовувати мінімальні базові образи, специфічні для NodeJS, як такий від проєкту distroless, а також команду npm-prune. Такий образ у мене займав близько 180 МБ, але його створення зайняло менше часу, та й він буде більш підтримуваним.</p>
+<h1 id="_11">Загальні висновки</h1>
+<p>Більшість висновків і рекомендацій написано після завдань. Хочу лиш додати те, що побачила як спільне для всіх пунктів: не завжди максимальна оптимізація виправдовує затрачені на неї час і сили. У цілому, контейнери видались мені чудовим засобом для розгортання застосунків.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
