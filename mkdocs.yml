@@ -1,0 +1,9 @@
+site_name: Lab 3
+nav:
+  - Вступ: README.md
+  - Звіт: REPORT.md
+theme:
+    name: mkdocs
+    highlightjs: true
+    hljs_languages:
+        - dockerfile
