@@ -73,7 +73,7 @@ CMD [ "uvicorn", "spaceship.main:app", "--host=0.0.0.0", "--port=8080" ]
 <details>
   <summary>Результат:</summary>
 
-<img src="/mtsd-lab-3//app-python.png" alt="result">
+<img src="/mtsd-lab-3/pics/app-python.png" alt="result">
 </details>
 
 ## Завдання 2 - Зміна коду
