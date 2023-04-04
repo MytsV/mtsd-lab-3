@@ -73,7 +73,7 @@ CMD [ "uvicorn", "spaceship.main:app", "--host=0.0.0.0", "--port=8080" ]
 <details>
   <summary>Результат:</summary>
 
-<img src="/pics/app-python.png" alt="result">
+<img src="/mtsd-lab-3//app-python.png" alt="result">
 </details>
 
 ## Завдання 2 - Зміна коду
@@ -88,7 +88,7 @@ CMD [ "uvicorn", "spaceship.main:app", "--host=0.0.0.0", "--port=8080" ]
 <details>
   <summary>Результат:</summary>
 
-<img src="/pics/app-python-v2.png" alt="result">
+<img src="/mtsd-lab-3/pics/app-python-v2.png" alt="result">
 </details>
 
 ## [Завдання 3 - Менш ефективний Dockerfile](https://github.com/MytsV/mtsd-lab-3/tree/779c65fc8360d39de8dc14e72b8662e5a2416f95/python)
@@ -147,7 +147,7 @@ numpy==1.23.0
 <details>
   <summary>Результат:</summary>
 
-  <img src="/pics/app-python-v3.png" alt="result">
+  <img src="/mtsd-lab-3/pics/app-python-v3.png" alt="result">
 </details>
 
 Згодом був [створений ще один образ](https://github.com/MytsV/mtsd-lab-3/commit/7d1c90130db3437e6ceaa9216e8da9ff07c052bb) *mytsv/python-methologies:v3-heavy* на основі базового з тегом 3.10-bullseye.
@@ -162,29 +162,29 @@ numpy==1.23.0
   <h4>Час збірки</h4>
 
   Пункт 1
-  <img src="/pics/1-time-python.png" alt="time1">
+  <img src="/mtsd-lab-3/pics/1-time-python.png" alt="time1">
 
   Пункт 2
-  <img src="/pics/2-time-python.png" alt="time2">
+  <img src="/mtsd-lab-3/pics/2-time-python.png" alt="time2">
 
   Пункт 3
-  <img src="/pics/3-time-python.png" alt="time3">
+  <img src="/mtsd-lab-3/pics/3-time-python.png" alt="time3">
 
   Пункт 4
-  <img src="/pics/4-time-python.png" alt="time4">
+  <img src="/mtsd-lab-3/pics/4-time-python.png" alt="time4">
 
   Пункт 5 - slim
-  <img src="/pics/5-time-python.png" alt="time5">
+  <img src="/mtsd-lab-3/pics/5-time-python.png" alt="time5">
 
   Пункт 5 - bullseye
-  <img src="/pics/5-heavy-time-python.png" alt="time5h">
+  <img src="/mtsd-lab-3/pics/5-heavy-time-python.png" alt="time5h">
 
   <h4>Розмір образу</h4>
 
   Червоним виділено образ, який створювався з базового python:3.10-alpine3.16
 
-  <img src="/pics/size-python.png" alt="size">
-  <img src="/pics/size-heavy-python.png" alt="size">
+  <img src="/mtsd-lab-3/pics/size-python.png" alt="size">
+  <img src="/mtsd-lab-3/pics/size-heavy-python.png" alt="size">
 
 </details>
 
@@ -212,7 +212,7 @@ numpy==1.23.0
 З цього можна зробити висновок, що на розмір образу впливає вибір базового образу (**alpine** < **v2-light** < **v1**) і кількість та важкість залежностей (**v2-light** < **v3**; **v2** < **v3-heavy**).<br>
 Для пунктів 2 і 3 у цьому вимірі також майже не виявилось різниці. Я вирішила взнати більш точний розмір обох образів:
 
-<img src="/pics/precise-size-python.png" alt="size">
+<img src="/mtsd-lab-3/pics/precise-size-python.png" alt="size">
 
 Виходить, що "ідеальний" важить навіть на декілька байтів більше! Схоже на те, що причиною цього є додатковий файл із списком залежностей.
 
@@ -257,8 +257,8 @@ CMD ["fizzbuzz", "serve"]
 <details>
   <summary>Знімки екрану з користувацьким вмістом контейнера</summary>
 
-<img src="/pics/ls-app.png">
-<img src="/pics/ls-bin.png">
+<img src="/mtsd-lab-3/pics/ls-app.png">
+<img src="/mtsd-lab-3/pics/ls-bin.png">
 </details>
 
 Крім виконуваного файлу fizzbuzz, як і в проведеній роботі з Python, у файловій системі контейнера знаходиться вихідний код проєкту, опис залежностей, README, Dockerfile і .gitignore. Ці останні складові не потрібні для запуску проєкту.
@@ -266,7 +266,7 @@ CMD ["fizzbuzz", "serve"]
 <details>
   <summary>Результат роботи серверу</summary>
 
-<img src="/pics/go-app.png">
+<img src="/mtsd-lab-3/pics/go-app.png">
 </details>
 
 ## [Завдання 2 - Багатоетапна збірка](https://github.com/MytsV/mtsd-lab-3/tree/7d7a0b683c200ed7e68a8f50498c6a8b3dd06324/golang)
@@ -290,7 +290,7 @@ CMD ["./fizzbuzz", "serve"]
 
 Наявна мінімальна кількість системних файлів (через специфіку базового образу scratch), перекопійований нами бінарний файл і index.html. Ці користувацьки файли є єдиними необхідними для запуску проєкту.
 
-<img src="/pics/min-ls.png">
+<img src="/mtsd-lab-3/pics/min-ls.png">
 </details>
 
 <details>
@@ -298,7 +298,7 @@ CMD ["./fizzbuzz", "serve"]
 
 Вона пов'язана з тим, що команда go build без додаткових прапорців/заданих змінних середовища створює <b>динамічний</b> двійковий файл. Він намагається звернутися до спільних бібліотек, але їх немає на образі scratch.
 
-<img src="/pics/link-error.png">
+<img src="/mtsd-lab-3/pics/link-error.png">
 </details>
 Виправляю помилку в Dockerfile, натомість компілюючи **статичний** двійковий файл.
 
@@ -309,7 +309,7 @@ RUN CGO_ENABLED=0 go build -v -o /usr/local/bin/fizzbuzz
 <details>
   <summary>Результат:</summary>
 
-<img src="/pics/go-app-command.png">
+<img src="/mtsd-lab-3/pics/go-app-command.png">
 </details>
 
 Мінусом користування цим образом є те, що в його оболонку не можна перейти без додаткових налаштувань у Dockerfile. Проте, якщо не турбуватися недоліками статичних бінарних файлів, цей спосіб здався мені досить зручним для наявного завдання.
@@ -346,7 +346,7 @@ FROM golang AS base
 <details>
   <summary>Тепер усе працює коректно</summary>
 
-<img src="/pics/go-fizzbuzz.png">
+<img src="/mtsd-lab-3/pics/go-fizzbuzz.png">
 </details>
 
 Вміст обох образів виявився значно більшим, ніж у того з базою scratch. Проте, користувацькими є також лише виконуваний файл і HTML сторінка.
@@ -429,19 +429,19 @@ CMD ["./hello-world"]
 <details>
   <summary>Результат запуску контейнера</summary>
 
-<img src="/pics/js-app.png">
+<img src="/mtsd-lab-3/pics/js-app.png">
 </details>
 
 <details>
   <summary>Розмір образу</summary>
 
-<img src="/pics/js-size.png">
+<img src="/mtsd-lab-3/pics/js-size.png">
 </details>
 
 <details>
   <summary>Вміст образу</summary>
 
-<img src="/pics/js-ls.png">
+<img src="/mtsd-lab-3/pics/js-ls.png">
 </details>
 
 ## Висновок
